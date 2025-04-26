@@ -8,14 +8,18 @@ Khi truy cập URL bài CTF, ta sẽ thấy mục "View The Source", sau khi ki�
 
 ![Image 1](Images/1.png)
 
-Trước hết, phân tích sâu hơi ta sẽ thấy nội dung gồm payload $_GET['magic_command'] --- ?magic_command
-Nội dung cần truyền vào payload là $what_you_dont_want_to_hear = 'HomNayOT_EmNhe' ---> ?magic_command=HomNayOT_EmNhe
-Tuy nhiên có 1 bộ lọc thay thế string HonNayOT_EmNhe bằng 1 string rỗng:
-    $what_you_actually_heard = preg_replace(
+Trước hết, phân tích sâu hơi ta sẽ thấy nội dung gồm payload $_GET['magic_command'] --- ?magic_command  
+
+Nội dung cần truyền vào payload là $what_you_dont_want_to_hear = 'HomNayOT_EmNhe' ---> ?magic_command=HomNayOT_EmNhe  
+
+Tuy nhiên có 1 bộ lọc thay thế string HonNayOT_EmNhe bằng 1 string rỗng:  
+
+    '''$what_you_actually_heard = preg_replace(
     "/$what_you_dont_want_to_hear/",
     '',
     $what_he_said
-    );
+    );'''  
+    
 ---> Khi tìm thấy chuỗi HomNayOT_EmNhe sẽ tự động replace bằng chuỗi trống''. ?magic_command=HomNayOT_EmNhe -> ?magic_command=''
 
 ![Image 2](Images/2.png)
