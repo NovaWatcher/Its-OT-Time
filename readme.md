@@ -19,11 +19,14 @@ Tuy nhiên có 1 bộ lọc thay thế string HonNayOT_EmNhe bằng 1 string r�
     '',
     $what_he_said
     );'''  
-    
+
 ---> Khi tìm thấy chuỗi HomNayOT_EmNhe sẽ tự động replace bằng chuỗi trống''. ?magic_command=HomNayOT_EmNhe -> ?magic_command=''
 
 ![Image 2](Images/2.png)
 
-Lúc này sẽ cần tìm 1 cách nào đó để bypass bộ lọc này, nhận thấy bộ lọc chỉ lọc 1 lần duy nhất tất cả các string 'HomNayOT_EmNhe', vậy nên việc nhập chuỗi 2 lần liên tục cũng sẽ không được (?magic_command=HomNayOT_EmNheHomNayOT_EmNhe). Vì vậy sẽ thử nhập chuỗi trong chuỗi, ví dụ: ?magic_command=HomNayHomNayOT_EmNheOT_EmNhe. Lúc này bộ lọc sẽ phát hiện như sau: ?magic_command=HomNay---HomNayOT_EmNhe---OT_EmNhe và xóa chuỗi ở giữa. Cuối cùng ta sẽ được payload ?magic_command=HomNayOT_EmNhe và được truyền đi đến server và lấy được flag
+Lúc này sẽ cần tìm 1 cách nào đó để bypass bộ lọc này, nhận thấy bộ lọc chỉ lọc 1 lần duy nhất tất cả các string 'HomNayOT_EmNhe', vậy nên việc nhập chuỗi 2 lần liên tục cũng sẽ không được (?magic_command=HomNayOT_EmNheHomNayOT_EmNhe).  
+Vì vậy sẽ thử nhập chuỗi trong chuỗi, ví dụ: ?magic_command=HomNayHomNayOT_EmNheOT_EmNhe. Lúc này bộ lọc sẽ phát hiện như sau:  
+?magic_command=HomNay---HomNayOT_EmNhe---OT_EmNhe và xóa chuỗi ở giữa.  
+Cuối cùng ta sẽ được payload ?magic_command=HomNayOT_EmNhe và được truyền đi đến server và lấy được flag  
 
 ![Image 3](Images/3.png)
